@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+          height="480"
+          width="640"
+    title="Promotion"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <text
+                jcr:primaryType="cq:Panel"
+                title="Promotion Content"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <headline
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Headline"
+                        name="./headline"
+                        xtype="textarea"/>
+                    <body
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Body"
+                        name="./body"
+                        xtype="textarea"/>
+                    <cta
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="CTA Link Text"
+                        name="./cta"
+                        xtype="textfield"/>
+                    <url
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Link URL"
+                        name="./url"
+                        xtype="textfield"/>
+                    <target
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Open in new tab?"
+                        inputValue="true"
+                        name="./target"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </text>
+            <styles
+                jcr:primaryType="cq:Panel"
+                title="Promotion Styles"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <dataOverlay
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Display Overlayed?"
+                        inputValue="true"
+                        name="./dataOverlay"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <fullBleed
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Allow image to bleed?"
+                        inputValue="true"
+                        name="./fullBleed"
+                        type="checkbox"
+                        xtype="selection"/>
+                    <colorThemes
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="Select Text Color"
+                        fieldLabel="Text Color"
+                        name="./colorTheme"
+                        type="select"
+                        xtype="selection">
+                        <options jcr:primaryType="cq:WidgetCollection">
+                            <one
+                                jcr:primaryType="nt:unstructured"
+                                text="Light"
+                                value="light"/>
+                            <two
+                                jcr:primaryType="nt:unstructured"
+                                text="Dark"
+                                value="dark"/>
+                        </options>
+                    </colorThemes>
+                    <backgroundColor
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Background Color Code:"
+                        fieldDescription="Hex code. For example, Beige color is #f5f5dc"
+                        defaultValue="#aaaaaa"
+                        name="./backgroundColor"
+                        xtype="textfield"/>
+                </items>
+            </styles>
+            <images
+                jcr:primaryType="cq:Panel"
+                title="Promotion Images"
+                xtype="panel">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <image
+                        jcr:primaryType="cq:Widget"
+                        allowUpload="{Boolean}false"
+                        ddGroups="[media]"
+                        fieldLabel="Image"
+                        fileNameParameter="./fileName"
+                        fileReferenceParameter="./fileReference"
+                        mimeTypes="*.jpg;*.png"
+                        name="./image"
+                        xtype="smartfile"/>
+                    <brandingImageAlt
+                        jcr:primaryType="nt:unstructured"
+                        fieldLabel="Branding Image Alt"
+                        name="./brandingImageAlt"
+                        xtype="textarea"/>
+                    <backgroundImage
+                        jcr:primaryType="cq:Widget"
+                        allowUpload="{Boolean}false"
+                        ddGroups="[media]"
+                        fieldLabel="Background Image"
+                        fileNameParameter="./fileNameBackground"
+                        fileReferenceParameter="./fileReferenceBackground"
+                        mimeTypes="*.jpg;*.png"
+                        name="./backgroundImage"
+                        xtype="smartfile"/>
+                </items>
+            </images>
+        </items>
+    </items>
+</jcr:root>

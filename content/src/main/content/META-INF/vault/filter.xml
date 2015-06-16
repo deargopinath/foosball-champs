@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/foosball/install"/>
+    <filter root="/apps/foosball/common"/>
+    <filter root="/apps/foosball/champs"/>
+    <filter root="/apps/ct"/>
+    <filter root="/apps/utilities"/>
+    <filter root="/etc/designs/foosball" />
+    <filter root="/etc/languages" />
+ </workspaceFilter>

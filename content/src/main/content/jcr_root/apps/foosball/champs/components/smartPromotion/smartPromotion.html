@@ -1,0 +1,22 @@
+<head data-sly-use.promotion="${'SmartPromotion'}"></head>
+<section data-overlay="false" data-component="promotion" data-count="" style="background-color:#ddd; background-image:url(${promotion.backgroundImage @ context='styleToken'});border-color:#ddd" class="promotion-component component ${promotion.colorTheme || 'dark'}">
+    <div class="test component__container component__flexie colsfix colsfix-js orderfix ''">
+        <div data-flex="2" data-order="2" class="promotion-component__content component__flex-item component__flexie colsfix__col">
+            <h1 class="promotion-component__headline component__flex-item">${promotion.headlineText}</h1>
+            <div data-sly-test="${promotion.bodyText}" class="promotion-component__body component__flex-item">
+                <p>${promotion.bodyText}</p>
+            </div>
+        </div>
+        <div data-sly-test="${promotion.buttonText}" data-flex="1" data-order="3" 
+             class="promotion-component__cta-container component__flexie component__flex-item colsfix__col">
+            <a href="${promotion.linkUrl || '#'}" data-track="cta-1" target="${promotion.linkTarget ? '_blank' : '_self'}" class="${promotion.buttonClass || 'button-large-transparent-champs-white'}">
+                 ${promotion.buttonText}
+            </a>
+        </div>
+        <div data-sly-test="${promotion.brandingImage}" data-order="1" class="promotion-component__brand component__flexie component__flex-item colsfix__col colsfix__col-nojs">
+            <div class="promotion-component__brand__item component__flex-item">
+                <img src="${promotion.brandingImage @ context='styleToken'}" alt="${promotion.brandingImageAlt}"/>
+            </div>
+        </div>
+    </div>
+</section>

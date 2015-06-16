@@ -1,0 +1,10 @@
+
+<!--/* CAUTION: THIS IS UNDER PRESENTATION LAYER CONTROL, PLEASE UPDATE /presentation-source/app/champs/components/breadcrumb/index.jade */-->
+<div data-sly-use.breadcrumb="${'com.foosball.components.champs.breadcrumb.Breadcrumb'}" data-sly-unwrap="data-sly-unwrap"></div>
+<section data-component="breadcrumb" class="breadcrumb component__flexie">
+  <ul data-sly-list.keyName="${breadcrumb.getLinks}" class="breadcrumb__list component__flexie">
+    <li class="breadcrumb__list__item component__flex-item"><a href="${breadcrumb.getLinks[keyName]}"> ${keyName}</a><span>/</span></li>
+    <p data-sly-test="${keyNameList.last}" class="component__flex-item"> ${breadcrumb.tail}
+    </p>
+  </ul>
+</section>

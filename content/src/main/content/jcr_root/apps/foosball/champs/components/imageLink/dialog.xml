@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="350"
+    title="Image Link"
+    width="640"
+    xtype="dialog">
+    <items jcr:primaryType="cq:TabPanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <tab1
+                jcr:primaryType="cq:Panel"
+                title="Settings">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <imageSource
+                        jcr:primaryType="cq:Widget"
+                        allowUpload="{Boolean}false"
+                        ddGroups="[media]"
+                        fieldLabel="Image:"
+                        fileNameParameter="./imageSourcefileName"
+                        fileReferenceParameter="./imageSource"
+                        mimeTypes="*.jpg;*.png"
+                        name="./imageSourcename"
+                        uploadUrl="/tmp/upload/*"
+                        xtype="smartfile"/>
+                    <altText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="ALT Text:"
+                        name="./altText"
+                        xtype="textfield"/>
+                    <hoverText
+                        jcr:primaryType="cq:Widget"
+                        fieldLabel="Hover Text:"
+                        name="./hoverText"
+                        xtype="textfield"/>
+                    <linkUrl
+                        jcr:primaryType="cq:Widget"
+                        defaultValue="http://"
+                        fieldLabel="URL:"
+                        name="./linkUrl"
+                        xtype="pathfield"/>
+                    <linkTarget
+                        jcr:primaryType="cq:Widget"
+                        checked="{Boolean}true"
+                        fieldLabel="Open in a new Tab?"
+                        inputValue="true"
+                        name="./linkTarget"
+                        type="checkbox"
+                        xtype="selection"/>
+                </items>
+            </tab1>
+        </items>
+    </items>
+</jcr:root>

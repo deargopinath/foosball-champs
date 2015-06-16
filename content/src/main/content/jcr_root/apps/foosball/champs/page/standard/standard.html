@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title data-sly-text="${currentPage.title}">Foosball Champs</title>
+    <link rel="shortcut icon" href="/content/dam/champs/favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="${currentPage.path}">
+    <meta name="description" content="${currentPage.description}">
+    <meta name="revisit-after" content="3 days">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta itemprop="description" content="${currentPage.description}">
+    <meta itemprop="image" content="">
+    <meta itemprop="name" content="">
+    <meta property="og:description" content="${currentPage.description}">
+    <meta property="og:image:height" content="">
+    <meta property="og:image:width" content="">
+    <meta property="og:image" content="">
+    <meta property="og:title" content="${currentPage.title}">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="${currentPage.path}">
+    <link href="/etc/designs/foosball/champs/styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <div data-sly-include="/apps/foosball/champs/global.jsp" data-sly-unwrap></div>
+    <div data-sly-include="/apps/foosball/champs/init.jsp" data-sly-unwrap></div>
+    <div data-sly-resource="${ @path='MainParagraph',resourceType='/libs/foundation/components/parsys'}" data-sly-unwrap></div>
+  </body>
+</html>
