@@ -41,7 +41,6 @@
         com.day.cq.wcm.api.designer.Style,
         com.day.cq.wcm.api.components.ComponentContext,
         com.day.cq.wcm.api.components.EditContext,
-		com.bato.util.TextUtil,
         com.day.cq.wcm.api.WCMMode"
         %><%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0" %><%
 %><%@taglib prefix="cq" uri="http://www.day.com/taglibs/cq/1.0" %><%
