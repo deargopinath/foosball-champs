@@ -1,0 +1,17 @@
+# root folder (foosball-champs)
+/.project
+/.hg*
+/.idea
+/*.iml
+/Thumbs.db
+/.DS_Store
+/.*~
+/build
+/private
+/target
+/.settings
+/.classpath
+/bin
+
+/bundle/target
+/content/target
