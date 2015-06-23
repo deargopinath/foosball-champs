@@ -1,4 +1,4 @@
-<%@include file="/apps/foosball/common/global.jsp"%>
+<%@include file="/apps/foosball/champs/global.jsp"%>
 <%@page import="javax.jcr.Node,
                 com.day.cq.commons.jcr.*"%>
 <%@page pageEncoding="UTF-8" %>

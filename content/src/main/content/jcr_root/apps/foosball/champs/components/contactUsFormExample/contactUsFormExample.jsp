@@ -1,4 +1,5 @@
-<form id=“contactUsForm” name=“contactUsForm”
+<%@include file="/apps/foosball/champs/global.jsp"%>
+<form id="contactUsForm" name="contactUsForm"
       action="<%=currentNode.getPath()%>.ThankYou.html"
       method="post">
     <p> Enter your details and click 'Contact Us'</p>
