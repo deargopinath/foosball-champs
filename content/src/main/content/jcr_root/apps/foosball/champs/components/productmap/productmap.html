@@ -1,0 +1,13 @@
+<div>From brackets Product Map</div>
+<div data-sly-use.productmap="${'ProductMapWcmUse'}">
+    <p>Inside ProductMapWcmUseComponent</p>
+    <div data-sly-list="${productmap.products}" style="">
+    	<div style="border: 1px solid black; width: 500px; height: 200px; margin: 5px auto;">
+        	<img src="${item.imageloc}" alt="${item.productName}" width="200" style="float:left;"/>
+        	<h3>${item.productName}</h3>
+        	<h5>${item.price}</h5>
+        	<p>${item.description}</p>
+    		<a href="${item.url}" target="${item.newtab ? '_blank' : '_self'}">Details</a>
+    	</div>
+    </div>
+</div>
