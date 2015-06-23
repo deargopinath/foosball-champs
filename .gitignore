@@ -12,6 +12,6 @@
 /.settings
 /.classpath
 /bin
-
+/.vlt*
 /bundle/target
 /content/target
