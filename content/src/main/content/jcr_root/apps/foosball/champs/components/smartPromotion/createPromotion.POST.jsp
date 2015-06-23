@@ -5,7 +5,7 @@
 <h2>Create Promotion : Result</h2>
 <%
    int promotionCount = 0;
-   String dataPath="/content/data/products/bridgestone/jcr:content";
+   String dataPath="/content/foosball/products/jcr:content";
    try {
          Resource dataResource = slingRequest.getResourceResolver().getResource(dataPath);
          Node rootNode = dataResource.adaptTo(Node.class);
