@@ -3,7 +3,7 @@
     jcr:description="Bridgestone - Standard Page Template"
     jcr:primaryType="cq:Template"
     jcr:title="Foosball Champs - Standard Page"
-    allowedPaths="[/content/foosball(/.*)?]"
+    allowedPaths="[/content(/.*)?]"
     ranking="{Long}74"
     shortTitle="Foosball Champs - Standard Page">
     <jcr:content

@@ -115,6 +115,11 @@
             <artifactId>commons-lang3</artifactId>
             <!-- org.apache.commons.lang3 -->
         </dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-shade-plugin</artifactId>
+			<version>2.4</version>
+		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

@@ -26,11 +26,11 @@ public class SendMailService {
 
 
     protected void activate(ComponentContext context) {
-
+    	System.out.println("Send Mail Service started");
     }
 
     protected void deactivate(ComponentContext context) {
-
+    	System.out.println("Send Mail Service is deactivated");
     }
 
     public boolean sendEmail(String emailAddresses, String emailBody, File file, String reportType, String subject) {

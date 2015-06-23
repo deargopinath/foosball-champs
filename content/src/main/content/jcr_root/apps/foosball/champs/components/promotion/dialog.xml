@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Dialog"
-          height="480"
-          width="640"
+    height="480"
     title="Promotion"
+    width="640"
     xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
@@ -82,9 +82,9 @@
                     </colorThemes>
                     <backgroundColor
                         jcr:primaryType="nt:unstructured"
-                        fieldLabel="Background Color Code:"
-                        fieldDescription="Hex code. For example, Beige color is #f5f5dc"
                         defaultValue="#aaaaaa"
+                        fieldDescription="Hex code. For example, Beige color is #f5f5dc"
+                        fieldLabel="Background Color Code:"
                         name="./backgroundColor"
                         xtype="textfield"/>
                 </items>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
     jcr:primaryType="cq:Dialog"
+    height="500"
     title="Product Map - MultiFieldPanel"
+    width="800"
     xtype="dialog">
     <items
         jcr:primaryType="cq:Widget"
@@ -9,7 +11,7 @@
         <items jcr:primaryType="cq:WidgetCollection">
             <tab1
                 jcr:primaryType="cq:Panel"
-                title="Add">
+                title="Add Products">
                 <items jcr:primaryType="cq:WidgetCollection">
                     <map
                         jcr:primaryType="cq:Widget"
@@ -29,26 +31,34 @@
                                 <productName
                                     jcr:primaryType="cq:Widget"
                                     dName="productName"
-                                    fieldLabel="Product Name:"
-                                    width="60"
+                                    fieldLabel="Product Name"
                                     xtype="textfield"/>
                                 <price
                                     jcr:primaryType="cq:Widget"
                                     dName="price"
-                                    fieldLabel="Price: $ "
-                                    width="60"
+                                    fieldLabel="Price(₹)"
                                     xtype="textfield"/>
                                 <url
                                     jcr:primaryType="cq:Widget"
                                     dName="url"
-                                    fieldLabel="Link:"
+                                    fieldLabel="Link"
                                     xtype="pathfield"/>
                                 <newTab
                                     jcr:primaryType="cq:Widget"
                                     dName="newTab"
                                     fieldLabel="Open in a new  Tab ?"
-                                    width="25"
                                     xtype="checkbox"/>
+                                <imageloc
+                                    jcr:primaryType="cq:Widget"
+                                    dName="imageloc"
+                                    fieldLabel="Product Image"
+                                    xtype="pathfield"/>
+                            
+                                <description
+                                    jcr:primaryType="cq:Widget"
+                                    dName="description"
+                                    fieldLabel="Description"
+                                    xtype="textarea"/>
                             </items>
                         </fieldConfig>
                     </map>
