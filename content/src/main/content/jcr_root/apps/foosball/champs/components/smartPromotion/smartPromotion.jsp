@@ -1,4 +1,5 @@
-<%@include file="/apps/foosball/champs/global.jsp"%>
+<%@include file="/apps/foosball/common/global.jsp"%>
+<%@include file="/apps/foosball/common/razorfishLibrary.jsp"%>
 <c:choose>
     <c:when test="${isEditMode}">
         <h2>Smart Promotions</h2>

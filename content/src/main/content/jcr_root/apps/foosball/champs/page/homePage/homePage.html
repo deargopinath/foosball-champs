@@ -24,6 +24,6 @@
 	<div data-sly-include="/apps/foosball/champs/global.jsp" data-sly-unwrap></div>
     <div data-sly-include="/apps/foosball/champs/init.jsp" data-sly-unwrap></div>
     <div data-sly-resource="${ @path='MainParagraph',resourceType='/libs/foundation/components/parsys'}" data-sly-unwrap></div>
-    <div data-sly-resource="${'/content/foosball/home/jcr:content/footer' @ wcmmode='disabled'}" data-sly-unwrap></div>
+    <div data-sly-resource="${ @path='footer', resourceType='/apps/foosball/champs/components/footer'}"></div>
   </body>
 </html>

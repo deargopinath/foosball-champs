@@ -53,7 +53,6 @@
                                     dName="imageloc"
                                     fieldLabel="Product Image"
                                     xtype="pathfield"/>
-                            
                                 <description
                                     jcr:primaryType="cq:Widget"
                                     dName="description"
