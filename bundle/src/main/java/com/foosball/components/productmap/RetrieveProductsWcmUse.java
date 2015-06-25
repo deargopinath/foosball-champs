@@ -3,17 +3,22 @@ package com.foosball.components.productmap;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.Property;
+import javax.jcr.PropertyIterator;
+import javax.jcr.Session;
+import javax.jcr.query.Query;
+import javax.jcr.query.QueryManager;
+import javax.jcr.query.QueryResult;
+
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUse;
+import com.day.cq.wcm.api.Page;
 import com.foosball.services.common.utilities.Product;
-
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.Property;
-import javax.jcr.PropertyIterator;
 
 public class RetrieveProductsWcmUse extends WCMUse {
 
@@ -24,8 +29,10 @@ public class RetrieveProductsWcmUse extends WCMUse {
 	public void activate() throws Exception {
 
 		// hard coding the products data here
+		
 		logger.info("inside activate method RetrieveProductWcmUse");
-		productList = new ArrayList<Product>();
+		
+		/*productList = new ArrayList<Product>();
 		Product product1 = new Product();
 		product1.setProductName("New ITSF B-ball");
 		product1.setPrice(100.34);
@@ -53,21 +60,43 @@ public class RetrieveProductsWcmUse extends WCMUse {
 		productList.add(product1);
 		productList.add(product2);
 		productList.add(product3);
-		productList.add(product4);
+		productList.add(product4);*/
 	}
 
 	public List<Product> getProductList() {
 
 			logger.info("Enter into getProductList");
-			List<Product> productList = new ArrayList<Product>();
+			productList = new ArrayList<Product>();
 			try {
+				String searchQuery = " ";
+				Page page = getCurrentPage();
+				  String pageName = page.getName();		  
+				  
+				  if(pageName.contains("ball")){
+					  searchQuery = "ball";
+					 
+				  }
+				  else if(pageName.contains("table")){				
+					  searchQuery = "table"; 
+				  }
+				  
+				  logger.info("searchQuery :" + searchQuery );
 				SlingHttpServletRequest request = getRequest();
 
-				String componentPath = "/content/FoosBallItems/jcr:content"; //path to component
-				Node node = request.getResourceResolver().getResource(componentPath).adaptTo(Node.class);
-				logger.info("Node Path ::D> " + node.getPath());
-				NodeIterator nodes = node.getNodes();
+				/*String componentPath = "/content/FoosBallItems/jcr:content"; //path to component
+				Node node = request.getResourceResolver().getResource(componentPath).adaptTo(Node.class);*/
+				Session session = request.getResourceResolver().adaptTo(Session.class);
+				
+				QueryManager queryManager = session.getWorkspace().getQueryManager();
+				
+				Query que =  queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/FoosBallItems/jcr:content') AND s.title like '%"+ searchQuery + "%'", Query.JCR_SQL2);
+				QueryResult result = que.execute();
+				
+				//logger.info("Node Path ::D> " + node.getPath());
+				NodeIterator nodes = result.getNodes();
+//				logger.info("NOde size : " +result.getRows().getSize());
 				while (nodes.hasNext()) {
+					logger.info("Node Iteration : ");
 					Product p = new Product();
 					Node next = nodes.nextNode();
 					PropertyIterator properties = next.getProperties();
