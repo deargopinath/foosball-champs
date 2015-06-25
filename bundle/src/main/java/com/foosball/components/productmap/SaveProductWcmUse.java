@@ -2,13 +2,8 @@ package com.foosball.components.productmap;
 
 import javax.jcr.Node;
 
-import org.apache.felix.scr.annotations.Component;
-import org.apache.felix.scr.annotations.Reference;
-import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -82,7 +77,7 @@ public class SaveProductWcmUse extends WCMUse {
 			dataResource = request.getResourceResolver().getResource(dataPath);
 			rootNode = dataResource.adaptTo(Node.class);
 			rootNode.setProperty("title", productName);
-			rootNode.setProperty("price", productPrice);
+			rootNode.setProperty("price", Double.valueOf(productPrice));
 			rootNode.setProperty("description", productDescription);
 			rootNode.setProperty("productImage",productImage);
 			rootNode.save();
