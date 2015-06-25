@@ -1,4 +1,4 @@
-<!--/* In Author / Edit mode the form cwill be diplayed to the user*/-->
+<!--/* In Author / Edit mode the form will be diplayed to the user*/-->
 <div data-sly-test.isEditMode="${wcmmode.edit}">
     <div> This is the author mode </div>
     <h2>Add Products to catalog</h2>
@@ -42,5 +42,15 @@
     <!--/* In WCMmode disbled show the list of products */-->
 <div data-sly-test="${!isEditMode}">
     <div> This is WCMmode Disbled </div>
-    <div data-sly-list="${}"
+    <div data-sly-use.plist="${'com.foosball.components.productmap.RetrieveProductsWcmUse'}">
+    	<table>
+            <tr data-sly-list="${plist.productList}">
+                <td>
+                    <p>${item.productName}</p>
+                    <p>${item.url}</p>
+                    <p>${item.price}</p>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
