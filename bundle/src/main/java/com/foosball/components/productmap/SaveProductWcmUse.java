@@ -13,7 +13,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.adobe.cq.sightly.WCMUse;
-import com.foosball.components.champs.contactUs.ContactUs;
 
 /**
  * To save the products in /content/products location
