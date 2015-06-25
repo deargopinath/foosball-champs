@@ -1,0 +1,46 @@
+<!--/* In Author / Edit mode the form cwill be diplayed to the user*/-->
+<div data-sly-test.isEditMode="${wcmmode.edit}">
+    <div> This is the author mode </div>
+    <h2>Add Products to catalog</h2>
+        <p>Form to create products</p>
+        <form id="createProduct" name="createProduct" action="${currentNode.path}.product.POST.html'" method="post">
+          <table style="width:600px">
+            <tr>
+              <td><b>Product Name *</b></td>
+              <td>
+                  <input id="productName"  name="productName"  type="text" style="width:250px"  required/>
+              </td>
+            </tr>
+            <tr>
+              <td><b>Product Price *</b></td>
+              <td>
+                  <input id="productPrice"  name="productPrice"  type="text" style="width:250px"  required/>
+              </td>
+            </tr>
+            <tr>
+               <td><b>Product Description *</b></td>
+               <td>
+                   <textarea id="productDescription" name="productDescription" rows="3" cols="20" style="width:250px" required></textarea>
+               </td>
+            </tr>
+            <tr>
+               <td><b>Product Image *</b></td>
+               <td>
+                   <input id="productImage"  name="productImage"  type="text" style="width:250px" required/>
+               </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input id="submitButton" name="submitButton" type="submit" value="Create Product"
+                        style="background-color: #081E41; color: #ffffff; font-size:1.0em; height:30px"/>
+                </td>
+            </tr>
+          </table>
+        </form>
+</div>
+    <!--/* In WCMmode disbled show the list of products */-->
+<div data-sly-test="${!isEditMode}">
+    <div> This is WCMmode Disbled </div>
+    <div data-sly-list="${}"
+</div>
