@@ -41,16 +41,34 @@
 </div>
     <!--/* In WCMmode disbled show the list of products */-->
 <div data-sly-test="${!isEditMode}">
-    <div> This is WCMmode Disbled </div>
+    <div> This is WCMmode Disbled  </div>
     <div data-sly-use.plist="${'com.foosball.components.productmap.RetrieveProductsWcmUse'}">
-    	<table>
-            <tr data-sly-list="${plist.productList}">
+        
+    	<table  cellspacing="0" cellpadding="0">
+            <ol data-sly-list="${plist.productList}">
+                <tr>
+                    <td><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td>
+                <td colspan="2">   
+                <div data-sly-test="${itemList.odd}">    
+                <li> <img src="${item.imageloc}"> </img>  
+                    <p>${item.productName}</p> 
+                    <p>${item.url}</p>               
+                    
+                    <p>${item.price}</p>
+                </li>
+                </div>
+                </td>
                 <td>
-                    <p>${item.productName}</p>
+                    <div data-sly-test="${itemList.even}">    
+                <li> <img src="${item.imageloc}"> </img>  
+                  <p>${item.productName}</p>
                     <p>${item.url}</p>
                     <p>${item.price}</p>
+                </li>
+                    </div>
                 </td>
-            </tr>
+                </tr>
+            </ol>
         </table>
     </div>
 </div>
