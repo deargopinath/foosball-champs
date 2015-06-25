@@ -8,7 +8,7 @@ public class Product implements Serializable {
 	 */
 	private static final long serialVersionUID = -5472375045578459080L;
 	private String productName;
-	private String price;
+	private double price;
 	private String url;
 	private boolean newtab;
 	private String imageloc;
@@ -22,11 +22,11 @@ public class Product implements Serializable {
 		this.productName = productName;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 
