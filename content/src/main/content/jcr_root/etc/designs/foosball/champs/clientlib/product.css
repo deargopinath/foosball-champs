@@ -1,4 +1,26 @@
-td{
-    border-left:0;
+td {
+    border-left: 0px;
 }
 
+.productTd {
+	border: 1px solid grey !important;
+    width: 300px;
+    margin: 5px;
+}
+
+.productTable {
+    border: 0px;
+    width: 650px;
+    margin: 0 auto;
+}
+
+.productImage {
+    border: 1px solid grey; 
+    width: 200px; 
+    height: 200px; 
+    text-align: center;
+    float: left;
+}
+h2 {
+    font-size: 2.0rem;
+}

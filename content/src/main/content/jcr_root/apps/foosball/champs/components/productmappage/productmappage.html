@@ -12,7 +12,7 @@
               </td>
             </tr>
             <tr>
-              <td><b>Product Price *</b></td>
+              <td><b>Product Price(&#8377;) *</b></td>
               <td>
                   <input id="productPrice"  name="productPrice"  type="text" style="width:250px"  required/>
               </td>
@@ -33,42 +33,24 @@
                 <td></td>
                 <td>
                     <input id="submitButton" name="submitButton" type="submit" value="Create Product"
-                        style="background-color: #081E41; color: #ffffff; font-size:1.0em; height:30px"/>
+                        style="background-color: #081E41; color: #ffffff; font-size:1.0em; height:30px" onClick="return validatePrice();"/>
                 </td>
             </tr>
           </table>
         </form>
 </div>
     <!--/* In WCMmode disbled show the list of products */-->
-<div data-sly-test="${!isEditMode}">
-    <div> This is WCMmode Disbled  </div>
+<div data-sly-test="${!isEditMode}" style="text-align: center;">
+    <span style="font-size: 40px; font-family: 'PathwayGothic', 'AltGothic', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;">Product List</span>
     <div data-sly-use.plist="${'com.foosball.components.productmap.RetrieveProductsWcmUse'}">
-        
-    	<table  cellspacing="0" cellpadding="0">
-            <ol data-sly-list="${plist.productList}">
+    	<table  cellspacing="1" cellpadding="0" data-sly-list="${plist.productList}" class="productTable">
                 <tr>
-                    <td><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></td>
-                <td colspan="2">   
-                <div data-sly-test="${itemList.odd}">    
-                <li> <img src="${item.imageloc}"> </img>  
-                    <p>${item.productName}</p> 
-                    <p>${item.url}</p>               
-                    
-                    <p>${item.price}</p>
-                </li>
-                </div>
-                </td>
-                <td>
-                    <div data-sly-test="${itemList.even}">    
-                <li> <img src="${item.imageloc}"> </img>  
-                  <p>${item.productName}</p>
-                    <p>${item.url}</p>
-                    <p>${item.price}</p>
-                </li>
-                    </div>
-                </td>
+                    <td class="productTd">
+                        <span class="productImage"><img src="${item.imageloc}" alt="${item.productName}" width="150"/><h3>&#8377;${item.price}</h3></span>
+                        <div><h2>${item.productName}</h2></div>
+                        <span><p>${item.description}</p></span>               
+                    </td>
                 </tr>
-            </ol>
         </table>
     </div>
 </div>
