@@ -119,8 +119,7 @@ public class PostSeviceImpl implements PostService {
 			
 			session.save();
 			logger.info("Property saved");
-			logger.info("property name "
-					+ postNode.getProperty("title").getValue().toString());
+			logger.info("property name " + postNode.getProperty("title").getValue().toString());
 
 		} catch (Exception ex) {
 			logger.info("Exception in save product " + ex.getMessage());
