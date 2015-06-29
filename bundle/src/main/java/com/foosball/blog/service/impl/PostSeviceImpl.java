@@ -20,6 +20,7 @@ import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.foosball.blog.model.Comment;
 import com.foosball.blog.model.Post;
 import com.foosball.blog.service.PostService;
 
@@ -151,4 +152,35 @@ public class PostSeviceImpl implements PostService {
 
 		return true;
 	}
+
+	//comment will be added to the post node if it doesn't exists. postID is the node name
+	public Boolean addComment(String postID, Comment comment){
+
+		String commentPath = "content/BlogDB/jcr:content/"+postID+"/" + comment.getCommentID();
+
+		try {
+			Session session = this.repository.login(new SimpleCredentials(
+					"admin", "admin".toCharArray()));
+
+			Node root = session.getRootNode();
+
+			if ( !root.hasNode(commentPath) ) {
+				Node commentNode = root.addNode(commentPath);
+
+				commentNode.setProperty("message", comment.getMessage());
+				commentNode.setProperty("screenName", comment.getScreenName());
+
+				session.save();
+				logger.info(comment.getCommentID() + " comment node is created ");
+			}
+
+
+		} catch (Exception ex) {
+			logger.info("Exception in save product " + ex.getMessage());
+		}
+
+		return null;
+	}
+
+
 }

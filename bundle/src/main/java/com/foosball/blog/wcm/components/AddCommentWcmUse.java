@@ -1,6 +1,5 @@
 package com.foosball.blog.wcm.components;
 
-import org.apache.felix.scr.annotations.Reference;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.scripting.SlingScriptHelper;
 import org.slf4j.Logger;

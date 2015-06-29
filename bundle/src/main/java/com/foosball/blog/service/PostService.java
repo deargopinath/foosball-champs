@@ -1,6 +1,7 @@
 package com.foosball.blog.service;
 
 import com.foosball.blog.model.Post;
+import com.foosball.blog.model.Comment;
 
 import java.util.List;
 
@@ -12,4 +13,6 @@ public interface PostService {
     public List<Post>  getPostList(String mode);
     
     public Boolean addPost(Post post);
+
+    public Boolean addComment(String postID, Comment comment);
 }
