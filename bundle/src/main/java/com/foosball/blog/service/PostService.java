@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface PostService {
 
-    public List<Post>  getPostList();
+    public List<Post>  getPostList(String mode);
     
     public Boolean addPost(Post post);
 }
