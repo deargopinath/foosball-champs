@@ -78,6 +78,12 @@
 			<artifactId>jackrabbit-api</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+
 		<!-- CQ5 WCM -->
 		<dependency>
 			<groupId>com.day.cq.wcm</groupId>

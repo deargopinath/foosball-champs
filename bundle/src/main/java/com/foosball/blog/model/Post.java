@@ -12,8 +12,20 @@ public class Post {
     private int likeCount;
     private String bloggerName;
     private String title;
+    private List<Comment> comments;
 
+    public Post() {
+    	
+    }
     
+    public Post(String postArticle, int commentCount, int likeCount, String bloggerName, String title, List<Comment> comments) {
+    	this.postArticle = postArticle;
+    	this.commentCount = commentCount;
+    	this.likeCount = likeCount;
+    	this.bloggerName = bloggerName;
+    	this.title = title;
+    	this.comments = comments;
+    }
 
     public String getPostArticle() {
 		return postArticle;
@@ -62,10 +74,4 @@ public class Post {
     public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
-
-    private List<Comment> comments;
-
-
-
-
 }
