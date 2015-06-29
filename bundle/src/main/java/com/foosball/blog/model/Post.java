@@ -7,21 +7,23 @@ import java.util.List;
  */
 public class Post {
 
-    private  String post;
+    private  String postArticle;
     private int commentCount;
     private int likeCount;
     private String bloggerName;
     private String title;
 
-    public String getPost() {
-        return post;
-    }
+    
 
-    public void setPost(String post) {
-        this.post = post;
-    }
+    public String getPostArticle() {
+		return postArticle;
+	}
 
-    public int getLikeCount() {
+	public void setPostArticle(String postArticle) {
+		this.postArticle = postArticle;
+	}
+
+	public int getLikeCount() {
         return likeCount;
     }
 
