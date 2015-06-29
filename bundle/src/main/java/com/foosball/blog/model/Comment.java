@@ -5,8 +5,17 @@ package com.foosball.blog.model;
  */
 public class Comment {
 
+    private String commentID;
     private String message;
     private String screenName;
+
+    public String getCommentID() {
+        return commentID;
+    }
+
+    public void setCommentID(String commentID) {
+        this.commentID = commentID;
+    }
 
     public void setMessage(String message) {
         this.message = message;

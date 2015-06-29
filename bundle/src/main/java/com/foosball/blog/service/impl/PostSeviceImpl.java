@@ -13,6 +13,7 @@ import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
+import com.foosball.blog.model.Comment;
 import org.apache.felix.scr.annotations.Reference;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
@@ -105,7 +106,7 @@ public class PostSeviceImpl implements PostService {
 				blogNode.addNode("jcr:content", "nt:unstructured");
 				logger.info("Created jcr node");
 			}
-			Node postNode = content.getNode("BlogDB");
+			Node postNode = content.getNode("BlogDB/jcr:content");
 			if (!postNode.hasNode(post.getTitle())) {
 
 				postNode.addNode(post.getTitle(), "nt:unstructured");
@@ -128,4 +129,35 @@ public class PostSeviceImpl implements PostService {
 		
 		return null;
 	}
+
+	//comment will be added to the post node if it doesn't exists. postID is the node name
+	public Boolean addComment(String postID, Comment comment){
+
+		String commentPath = "content/BlogDB/jcr:content/"+postID+"/" + comment.getCommentID();
+
+		try {
+			Session session = this.repository.login(new SimpleCredentials(
+					"admin", "admin".toCharArray()));
+
+			Node root = session.getRootNode();
+
+			if ( !root.hasNode(commentPath) ) {
+				Node commentNode = root.addNode(commentPath);
+
+				commentNode.setProperty("message", comment.getMessage());
+				commentNode.setProperty("screenName", comment.getScreenName());
+
+				session.save();
+				logger.info(comment.getCommentID() + " comment node is created ");
+			}
+
+
+		} catch (Exception ex) {
+			logger.info("Exception in save product " + ex.getMessage());
+		}
+
+		return null;
+	}
+
+
 }
