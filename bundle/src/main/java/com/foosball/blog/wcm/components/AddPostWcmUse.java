@@ -18,6 +18,7 @@ public class AddPostWcmUse extends WCMUse {
 	public void activate() throws Exception {
 		SlingScriptHelper sling = getSlingScriptHelper();
 		SlingHttpServletRequest slingRequest = getRequest();
+		PostService postService = sling.getService(PostService.class);
 		
 		String screenName = slingRequest.getParameter("screenName");
 		String postTitle = slingRequest.getParameter("postTitle");
@@ -26,7 +27,7 @@ public class AddPostWcmUse extends WCMUse {
 		Post newPost = new Post(postContent, 0, 0, screenName, postTitle, null);
 		logger.info("Screen Name :" + screenName);
 		logger.info("Post Content :" + postContent);
-		PostService postService = sling.getService(PostService.class);
+		logger.info("Post Service");
 		flag = postService.addPost(newPost);
 	}
 

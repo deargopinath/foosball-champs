@@ -13,7 +13,9 @@ import javax.jcr.query.Query;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
+import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
+import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.jcr.api.SlingRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,8 @@ import com.foosball.blog.service.PostService;
 /**
  * Created by tripotha on 6/26/2015.
  */
+@Service(PostService.class)
+@Component(immediate=true)
 public class PostSeviceImpl implements PostService {
 
 	private final Logger logger = LoggerFactory.getLogger(PostSeviceImpl.class);
@@ -44,8 +48,7 @@ public class PostSeviceImpl implements PostService {
 					.getQueryManager();
 
 			Query query = null;
-			query = queryManager
-					.createQuery(
+			query = queryManager.createQuery(
 							"SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/BlogDB/jcr:content') order by  s.commentCount DESC, s.likeCount DESC, s.postArticle ASC",
 							Query.JCR_SQL2);
 			if(mode.equals("trendingPosts")){
@@ -89,16 +92,29 @@ public class PostSeviceImpl implements PostService {
 	}
 
 	public Boolean addPost(Post post) {
+		
+		logger.info("enter the addpost() ****");
 
 		try {
 			Session session = this.repository.login(new SimpleCredentials(
 					"admin", "admin".toCharArray()));
+			
+			QueryManager queryManager = session.getWorkspace()
+					.getQueryManager();
+
+			Query query = queryManager
+					.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/BlogDB/jcr:content') AND NAME() LIKE 'post#%'",
+							Query.JCR_SQL2);
+			
+			QueryResult result = query.execute();
+			long postCount = result.getRows().getSize();
+			logger.info("Post Count :" + postCount);
 
 			Node root = session.getRootNode();
 			Node content = root.getNode("content");
 
 			if (!content.hasNode("BlogDB")) {
-				content.addNode("BlogDB");
+				content.addNode("BlogDB", "sling:OrderedFolder");
 				logger.info("Created parent node");
 			}
 			Node blogNode = content.getNode("BlogDB");
@@ -107,27 +123,32 @@ public class PostSeviceImpl implements PostService {
 				blogNode.addNode("jcr:content", "nt:unstructured");
 				logger.info("Created jcr node");
 			}
-			Node postNode = content.getNode("BlogDB");
-			if (!postNode.hasNode(post.getTitle())) {
-
-				postNode.addNode(post.getTitle(), "nt:unstructured");
-				logger.info("Created post.getTitle() node");
-			}
-
+			Node postNode = blogNode.getNode("BlogDB/jcr:content");
+			
+			postNode.addNode("post#" + postCount++, "nt:unstructured");
+			logger.info("Created post#1 node");
+			
+			postNode.setProperty("title",post.getTitle());
 			postNode.setProperty("postArticle", post.getPostArticle());
 			postNode.setProperty("commentCount", post.getCommentCount());
 			postNode.setProperty("likeCount", post.getLikeCount());
 			postNode.setProperty("bloggerName", post.getBloggerName());
-
+			
+			
+			/*postNode.setProperty("title", "AEM Test");
+			postNode.setProperty("postArticle", "postArticle");
+			postNode.setProperty("commentCount", "commentCount");
+			postNode.setProperty("likeCount", "likeCount");
+			postNode.setProperty("bloggerName", "bloggerName");*/
+			
 			session.save();
 			logger.info("Property saved");
-			logger.info("property name "
-					+ postNode.getProperty("title").getValue().toString());
+			logger.info("property name :" + postNode.getProperty("title").getValue().toString());
 
 		} catch (Exception ex) {
 			logger.info("Exception in save product " + ex.getMessage());
 		}
 
-		return null;
+		return true;
 	}
 }
