@@ -22,6 +22,7 @@ public class AddCommentWcmUse extends WCMUse {
 		String postId = slingRequest.getParameter("postId");
 		String screenName = slingRequest.getParameter("screenName");
 		String commentText = slingRequest.getParameter("comment");
+		
 		// By Using the Service we have to implement write the code to save the comment in JCR
 		logger.info("Post ID: " + postId + " Screen Name :" + screenName + " Comment Text :" + commentText);
 	}
