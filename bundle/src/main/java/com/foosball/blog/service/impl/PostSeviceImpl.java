@@ -124,17 +124,18 @@ public class PostSeviceImpl implements PostService {
 				blogNode.addNode("jcr:content", "nt:unstructured");
 				logger.info("Created jcr node");
 			}
-			Node postNode = blogNode.getNode("BlogDB/jcr:content");
 			
-			postNode.addNode("post#" + postCount++, "nt:unstructured");
+			Node jcrContentNode = blogNode.getNode("BlogDB/jcr:content");
+			
+			Node postNode = jcrContentNode.addNode("post#" + postCount++, "nt:unstructured");
+			
 			logger.info("Created post#1 node");
 			
-			postNode.setProperty("title",post.getTitle());
+			postNode.setProperty("title", post.getTitle());
 			postNode.setProperty("postArticle", post.getPostArticle());
 			postNode.setProperty("commentCount", post.getCommentCount());
 			postNode.setProperty("likeCount", post.getLikeCount());
 			postNode.setProperty("bloggerName", post.getBloggerName());
-			
 			
 			/*postNode.setProperty("title", "AEM Test");
 			postNode.setProperty("postArticle", "postArticle");
