@@ -12,13 +12,12 @@ import org.apache.felix.scr.annotations.Service;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.commons.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.foosball.blog.model.Post;
 import com.foosball.blog.service.PostService;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 
 @Component(immediate=true, label="Retrieve Posts Component", metatype=true, description="This is a servlet to retrieve posts from JCR")
@@ -42,15 +41,17 @@ public class RetrievePostsServlet extends SlingSafeMethodsServlet {
 	public void doGet(SlingHttpServletRequest slingRequest, SlingHttpServletResponse slingResponse) {
 		String action = slingRequest.getParameter("action");
 		List<Post> postList = postService.getPostList(action);
-		GsonBuilder gsonbuilder = new GsonBuilder();
-		Gson gson = gsonbuilder.create();
-		String postListJson = gson.toJson(postList);
+		
+		JSONArray jsonArray = new JSONArray(postList);
+		//GsonBuilder gsonbuilder = new GsonBuilder();
+		//Gson gson = gsonbuilder.create();
+		//String postListJson = gson.toJson(postList);
 
-		logger.info("Post List JSON :" + postListJson);
+		logger.info("Post List JSON :" + jsonArray.toString());
 		PrintWriter out;
 		try {
 			out = slingResponse.getWriter();
-			out.println(postListJson);
+			out.println(jsonArray);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

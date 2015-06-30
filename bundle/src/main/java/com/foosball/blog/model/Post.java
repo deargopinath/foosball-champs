@@ -2,6 +2,8 @@ package com.foosball.blog.model;
 
 import java.util.List;
 
+import org.apache.sling.commons.json.JSONArray;
+
 /**
  * Created by tripotha on 6/26/2015.
  */
@@ -10,7 +12,7 @@ public class Post {
     private  String postArticle;
     private int commentCount;
     private int likeCount;
-    private String bloggerName;
+    private String screenName;
     private String title;
     private List<Comment> comments;
 
@@ -22,7 +24,7 @@ public class Post {
     	this.postArticle = postArticle;
     	this.commentCount = commentCount;
     	this.likeCount = likeCount;
-    	this.bloggerName = bloggerName;
+    	this.screenName = bloggerName;
     	this.title = title;
     	this.comments = comments;
     }
@@ -52,11 +54,11 @@ public class Post {
     }
 
     public String getBloggerName() {
-        return bloggerName;
+        return screenName;
     }
 
-    public void setBloggerName(String bloggerName) {
-        this.bloggerName = bloggerName;
+    public void setBloggerName(String screenName) {
+        this.screenName = screenName;
     }
 
     public String getTitle() {
@@ -73,5 +75,24 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+    
+    public String toString() {
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("{");
+    	sb.append("\"postArticle\":");
+    	sb.append("\"" + postArticle + "\"");
+    	sb.append("\"likeCount\":");
+    	sb.append("\"" + likeCount + "\"");
+    	sb.append("\"commentCount\":");
+    	sb.append("\"" + commentCount + "\"");
+    	sb.append("\"screenName\":");
+    	sb.append("\"" + screenName + "\"");
+    	sb.append("\"title\":");
+    	sb.append("\"" + title + "\"");
+    	sb.append("\"comments\":");
+    	sb.append("\"" + new JSONArray(comments) + "\"");
+    	sb.append("}");
+    	return sb.toString();
     }
 }

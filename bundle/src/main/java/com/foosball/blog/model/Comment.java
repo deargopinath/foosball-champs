@@ -32,4 +32,17 @@ public class Comment {
     public String getScreenName() {
         return screenName;
     }
+    
+    @Override
+    public String toString() {
+    	StringBuffer sb = new StringBuffer();
+    	sb.append("{");
+    	sb.append("\"commentID\"");
+    	sb.append("\"" + commentID + "\"");
+    	sb.append("\"message\"");
+    	sb.append("\"" + message + "\"");
+    	sb.append("\"screenName\"");
+    	sb.append("\"" + screenName + "\"");
+    	return sb.toString();
+    }
 }
