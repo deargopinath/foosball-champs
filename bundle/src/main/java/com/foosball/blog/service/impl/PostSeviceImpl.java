@@ -156,7 +156,7 @@ public class PostSeviceImpl implements PostService {
 	//comment will be added to the post node if it doesn't exists. postID is the node name
 	public Boolean addComment(String postID, Comment comment){
 
-		String commentPath = "content/BlogDB/jcr:content/"+postID+"/" + comment.getCommentID();
+		String commentPath = "content/BlogDB/jcr:content/"+postID+"/" + getCommentID(postID);
 
 		try {
 			Session session = this.repository.login(new SimpleCredentials(
@@ -175,6 +175,32 @@ public class PostSeviceImpl implements PostService {
 			}
 
 
+		} catch (Exception ex) {
+			logger.info("Exception in save product " + ex.getMessage());
+		}
+
+		return null;
+	}
+
+
+	private String getCommentID(String postID){
+		try{
+			Session session = this.repository.login(new SimpleCredentials(
+					"admin", "admin".toCharArray()));
+
+			QueryManager queryManager = session.getWorkspace()
+					.getQueryManager();
+
+			Query query = queryManager
+					.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/BlogDB/jcr:content" + postID + "') AND NAME() LIKE 'comment#%'",
+							Query.JCR_SQL2);
+
+			QueryResult result = query.execute();
+			long commentCount = result.getRows().getSize();
+		    logger.info("Comment Count :" + commentCount);
+
+			String commentName = "comment#"+commentCount;
+			return commentName;
 		} catch (Exception ex) {
 			logger.info("Exception in save product " + ex.getMessage());
 		}
