@@ -20,11 +20,11 @@ public class Post {
     	
     }
     
-    public Post(String postArticle, int commentCount, int likeCount, String bloggerName, String title, List<Comment> comments) {
+    public Post(String postArticle, int commentCount, int likeCount, String screenName, String title, List<Comment> comments) {
     	this.postArticle = postArticle;
     	this.commentCount = commentCount;
     	this.likeCount = likeCount;
-    	this.screenName = bloggerName;
+    	this.screenName = screenName;
     	this.title = title;
     	this.comments = comments;
     }
@@ -53,11 +53,11 @@ public class Post {
         this.commentCount = commentCount;
     }
 
-    public String getBloggerName() {
+    public String getScreenName() {
         return screenName;
     }
 
-    public void setBloggerName(String screenName) {
+    public void setScreenName(String screenName) {
         this.screenName = screenName;
     }
 

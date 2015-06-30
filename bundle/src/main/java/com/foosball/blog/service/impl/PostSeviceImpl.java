@@ -37,11 +37,8 @@ public class PostSeviceImpl implements PostService {
 	SlingRepository repository;
 
 	public List<Post> getPostList(String mode) {
-
 		List<Post> postList = new ArrayList<Post>();
-
 		try {
-
 			Session session = this.repository.login(new SimpleCredentials(
 					"admin", "admin".toCharArray()));
 
@@ -49,8 +46,7 @@ public class PostSeviceImpl implements PostService {
 					.getQueryManager();
 
 			Query query = null;
-			query = queryManager.createQuery(
-							"SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/BlogDB/jcr:content') order by  s.commentCount DESC, s.likeCount DESC, s.postArticle ASC",
+			query = queryManager.createQuery("SELECT * FROM [nt:unstructured] AS s WHERE ISDESCENDANTNODE(s,'/content/BlogDB/jcr:content') order by  s.commentCount DESC, s.likeCount DESC, s.postArticle ASC",
 							Query.JCR_SQL2);
 			if(mode.equals("trendingPosts")){
 				query.setLimit(3);
@@ -71,8 +67,8 @@ public class PostSeviceImpl implements PostService {
 					// Value[] values = prop.getValues();
 					if (prop.getName().equals("title")) {
 						p.setTitle(prop.getValue().toString());
-					} else if (prop.getName().equals("bloggerName")) {
-						p.setBloggerName(prop.getValue().toString());
+					} else if (prop.getName().equals("screenName")) {
+						p.setScreenName(prop.getValue().toString());
 					} else if (prop.getName().equals("postArticle")) {
 						p.setPostArticle(prop.getValue().toString());
 					} else if (prop.getName().equals("commentCount")) {
@@ -135,7 +131,7 @@ public class PostSeviceImpl implements PostService {
 			postNode.setProperty("postArticle", post.getPostArticle());
 			postNode.setProperty("commentCount", post.getCommentCount());
 			postNode.setProperty("likeCount", post.getLikeCount());
-			postNode.setProperty("bloggerName", post.getBloggerName());
+			postNode.setProperty("bloggerName", post.getScreenName());
 			
 			/*postNode.setProperty("title", "AEM Test");
 			postNode.setProperty("postArticle", "postArticle");

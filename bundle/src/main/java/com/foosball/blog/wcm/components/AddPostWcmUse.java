@@ -16,6 +16,7 @@ public class AddPostWcmUse extends WCMUse {
 	
 	@Override
 	public void activate() throws Exception {
+		logger.info("Inside activate method");
 		SlingScriptHelper sling = getSlingScriptHelper();
 		SlingHttpServletRequest slingRequest = getRequest();
 		PostService postService = sling.getService(PostService.class);
@@ -31,7 +32,7 @@ public class AddPostWcmUse extends WCMUse {
 		flag = postService.addPost(newPost);
 	}
 
-	public boolean isFlag() {
+	public boolean getFlag() {
 		return flag;
 	}
 
