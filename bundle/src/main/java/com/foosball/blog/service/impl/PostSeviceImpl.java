@@ -88,10 +88,11 @@ public class PostSeviceImpl implements PostService {
 				NodeIterator commentNodes = next.getNodes();
 				
 				 while(commentNodes.hasNext()){
-		                Node tabbedCarouselItemNode = commentNodes.nextNode();
+		                Node commentNode = commentNodes.nextNode();
 		                
-		                PropertyIterator commentProperties = tabbedCarouselItemNode.getProperties();
+		                PropertyIterator commentProperties = commentNode.getProperties();
 		                c = new Comment();
+		                c.setCommentID(commentNode.getName());
 		                while(commentProperties.hasNext()){
 		                	Property prop = commentProperties.nextProperty();
 		                	if (prop.getName().equals("message")) {
