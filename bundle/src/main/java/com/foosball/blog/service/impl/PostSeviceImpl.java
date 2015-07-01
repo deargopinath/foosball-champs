@@ -37,7 +37,7 @@ public class PostSeviceImpl implements PostService {
 	SlingRepository repository;
 
 	public List<Post> getPostList(String mode) {
-		List<Post> postList = new ArrayList<Post>();
+		List<Post> postList = null;
 		try {
 			Session session = this.repository.login(new SimpleCredentials(
 					"admin", "admin".toCharArray()));
@@ -57,9 +57,15 @@ public class PostSeviceImpl implements PostService {
 			// logger.info("Node Path ::D> " + node.getPath());
 			NodeIterator nodes = result.getNodes();
 			// logger.info("NOde size : " +result.getRows().getSize());
+			
+			postList = new ArrayList<Post>();
+			List<Comment> commentList = new ArrayList<Comment>();
+			Post p = null;
+			Comment c = null;
+			
 			while (nodes.hasNext()) {
 				logger.info("Node Iteration : ");
-				Post p = new Post();
+				 p = new Post();
 				Node next = nodes.nextNode();
 				PropertyIterator properties = next.getProperties();
 				while (properties.hasNext()) {
@@ -75,8 +81,28 @@ public class PostSeviceImpl implements PostService {
 						p.setCommentCount((int) prop.getValue().getLong());
 					} else if (prop.getName().equals("likeCount")) {
 						p.setLikeCount((int) prop.getValue().getLong());
-					}
+					} 
 				}
+				
+				//Below code is used to set array of comments values
+				NodeIterator commentNodes = next.getNodes();
+				
+				 while(commentNodes.hasNext()){
+		                Node tabbedCarouselItemNode = commentNodes.nextNode();
+		                
+		                PropertyIterator commentProperties = tabbedCarouselItemNode.getProperties();
+		                c = new Comment();
+		                while(commentProperties.hasNext()){
+		                	Property prop = commentProperties.nextProperty();
+		                	if (prop.getName().equals("message")) {
+								c.setMessage(prop.getValue().toString());
+							} else if (prop.getName().equals("screenName")) {
+								c.setScreenName(prop.getValue().toString());
+							}
+		                }
+		                commentList.add(c);
+				}
+				 p.setComments(commentList);
 				postList.add(p);
 			}
 		} catch (Exception e) {
