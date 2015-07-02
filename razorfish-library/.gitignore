@@ -77,34 +77,34 @@
 /packages/.classpath
 /packages/bin
 
-# bundle-install folder
-/packages/bundle-install/.project
-/packages/bundle-install/.hg_archival.txt
-/packages/bundle-install/.hgignore
-/packages/bundle-install/.idea
-/packages/bundle-install/dotcom.iml
-/packages/bundle-install/Thumbs.db
-/packages/bundle-install/.DS_Store
-/packages/bundle-install/.*~
-/packages/bundle-install/build
-/packages/bundle-install/private
-/packages/bundle-install/target
-/packages/bundle-install/.settings
-/packages/bundle-install/.classpath
-/packages/bundle-install/bin
+# rf-library-bundle folder
+/packages/rf-library-bundle/.project
+/packages/rf-library-bundle/.hg_archival.txt
+/packages/rf-library-bundle/.hgignore
+/packages/rf-library-bundle/.idea
+/packages/rf-library-bundle/dotcom.iml
+/packages/rf-library-bundle/Thumbs.db
+/packages/rf-library-bundle/.DS_Store
+/packages/rf-library-bundle/.*~
+/packages/rf-library-bundle/build
+/packages/rf-library-bundle/private
+/packages/rf-library-bundle/target
+/packages/rf-library-bundle/.settings
+/packages/rf-library-bundle/.classpath
+/packages/rf-library-bundle/bin
 
-# dependencies-install folder
-/packages/dependencies-install/.project
-/packages/dependencies-install/.hg_archival.txt
-/packages/dependencies-install/.hgignore
-/packages/dependencies-install/.idea
-/packages/dependencies-install/dotcom.iml
-/packages/dependencies-install/Thumbs.db
-/packages/dependencies-install/.DS_Store
-/packages/dependencies-install/.*~
-/packages/dependencies-install/build
-/packages/dependencies-install/private
-/packages/dependencies-install/target
-/packages/dependencies-install/.settings
-/packages/dependencies-install/.classpath
-/packages/dependencies-install/bin
+# rf-library-dependencies folder
+/packages/rf-library-dependencies/.project
+/packages/rf-library-dependencies/.hg_archival.txt
+/packages/rf-library-dependencies/.hgignore
+/packages/rf-library-dependencies/.idea
+/packages/rf-library-dependencies/dotcom.iml
+/packages/rf-library-dependencies/Thumbs.db
+/packages/rf-library-dependencies/.DS_Store
+/packages/rf-library-dependencies/.*~
+/packages/rf-library-dependencies/build
+/packages/rf-library-dependencies/private
+/packages/rf-library-dependencies/target
+/packages/rf-library-dependencies/.settings
+/packages/rf-library-dependencies/.classpath
+/packages/rf-library-dependencies/bin

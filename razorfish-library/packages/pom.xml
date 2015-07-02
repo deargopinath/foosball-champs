@@ -19,8 +19,8 @@
 
 
     <modules>
-        <module>dependencies-install</module>
-        <module>bundle-install</module>
+        <module>rf-library-dependencies</module>
+        <module>rf-library-bundle</module>
     </modules>
 
     <build>
@@ -65,7 +65,7 @@
             <id>includeDependencies</id>
 
             <modules>
-                <module>dependencies-install</module>
+                <module>rf-library-dependencies</module>
             </modules>
         </profile>
 
