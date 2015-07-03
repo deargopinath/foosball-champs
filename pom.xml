@@ -615,6 +615,7 @@
     </profiles>
 
 	<modules>
+                <module>razorfish-library</module>
 		<module>bundle</module>
 		<module>content</module>
 	</modules>
