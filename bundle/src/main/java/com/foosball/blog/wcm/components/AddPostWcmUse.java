@@ -25,7 +25,7 @@ public class AddPostWcmUse extends WCMUse {
 		String postTitle = slingRequest.getParameter("postTitle");
 		String postContent = slingRequest.getParameter("postContent");
 		
-		Post newPost = new Post(postContent, 0, 0, screenName, postTitle, null);
+		Post newPost = new Post(null, postContent, 0, 0, screenName, postTitle, null);
 		logger.info("Screen Name :" + screenName);
 		logger.info("Post Content :" + postContent);
 		logger.info("Post Service");

@@ -39,7 +39,6 @@
 		<dependency>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-shade-plugin</artifactId>
-			<version>2.4</version>
 		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -222,7 +221,25 @@
             <groupId>com.jcraft</groupId>
             <artifactId>jzlib</artifactId>
         </dependency>
-
+        
+         <dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+ 			<groupId>com.day.commons</groupId>
+  			<artifactId>day.commons.datasource.jdbcpool</artifactId>
+		</dependency>
+		
+		<dependency>
+    		<groupId>com.day.commons</groupId>
+    		<artifactId>day.commons.datasource.poolservice</artifactId>
+    	</dependency>
+    	<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		
 	</dependencies>
 
     <!-- ====================================================================== -->

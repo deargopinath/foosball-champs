@@ -9,18 +9,20 @@ import org.apache.sling.commons.json.JSONArray;
  */
 public class Post {
 
-    private  String postArticle;
+	private String title;
+	private String screenName;
+	private  String postArticle;
+	private int likeCount;
+	private List<Comment> comments;
+	private String postId;
     private int commentCount;
-    private int likeCount;
-    private String screenName;
-    private String title;
-    private List<Comment> comments;
 
     public Post() {
     	
     }
     
-    public Post(String postArticle, int commentCount, int likeCount, String screenName, String title, List<Comment> comments) {
+    public Post(String postId, String postArticle, int commentCount, int likeCount, String screenName, String title, List<Comment> comments) {
+    	this.postId = postId;
     	this.postArticle = postArticle;
     	this.commentCount = commentCount;
     	this.likeCount = likeCount;
@@ -77,21 +79,31 @@ public class Post {
         this.comments = comments;
     }
     
+    public String getPostId() {
+		return postId;
+	}
+
+	public void setPostId(String postId) {
+		this.postId = postId;
+	}
+    
     public String toString() {
     	StringBuffer sb = new StringBuffer();
     	sb.append("{");
-    	sb.append("\"postArticle\":");
-    	sb.append("\"" + postArticle + "\"");
-    	sb.append("\"likeCount\":");
-    	sb.append("\"" + likeCount + "\"");
-    	sb.append("\"commentCount\":");
-    	sb.append("\"" + commentCount + "\"");
-    	sb.append("\"screenName\":");
-    	sb.append("\"" + screenName + "\"");
-    	sb.append("\"title\":");
-    	sb.append("\"" + title + "\"");
-    	sb.append("\"comments\":");
-    	sb.append("\"" + new JSONArray(comments) + "\"");
+    	sb.append("postId:");
+    	sb.append(postId + ",");
+    	sb.append("postArticle:");
+    	sb.append(postArticle + ",");
+    	sb.append("likeCount:");
+    	sb.append(likeCount + ",");
+    	sb.append("commentCount:");
+    	sb.append(commentCount + ",");
+    	sb.append("screenName:");
+    	sb.append(screenName + ",");
+    	sb.append("title:");
+    	sb.append(title + ",");
+    	sb.append("comments:");
+    	sb.append(new JSONArray(comments));
     	sb.append("}");
     	return sb.toString();
     }

@@ -6,9 +6,9 @@ package com.foosball.blog.model;
 public class Comment {
 
     private String commentID;
-    private String message;
     private String screenName;
-
+    private String message;
+    
     public String getCommentID() {
         return commentID;
     }
@@ -37,12 +37,13 @@ public class Comment {
     public String toString() {
     	StringBuffer sb = new StringBuffer();
     	sb.append("{");
-    	sb.append("\"commentID\"");
-    	sb.append("\"" + commentID + "\"");
-    	sb.append("\"message\"");
-    	sb.append("\"" + message + "\"");
-    	sb.append("\"screenName\"");
-    	sb.append("\"" + screenName + "\"");
+    	sb.append("commentID:");
+    	sb.append(commentID + ",");
+    	sb.append("message:");
+    	sb.append(message + ",");
+    	sb.append("screenName:");
+    	sb.append(screenName);
+    	sb.append("}");
     	return sb.toString();
     }
 }

@@ -1,54 +1,70 @@
 
-<div id="mainBlog" style="width:1000px;" style="display:block;">
-    <div style="background-color:#6095C9;height:40px;border: 3px solid #47719C;font-weight:bold;">
-        <div style="display:inline-block;vertical-align: middle;width:700px;font-size:20px;margin-left:30px;color:#fff;">Foosball Champs Blog</div>
+<div id="mainBlog" style="display:block;width:800px; margin: 0 auto; border: 2px solid #6095C9;">
+    <!-- <div style="background-color:#6095C9;height:40px;border: 3px solid #47719C;font-weight:bold;"> -->
+        <div class="header"><span style="margin-left: 1%; color: white; font-weight: bold;">Foosball Champs Blog</span><input type="button" id="addPostBtn" value="Add a new post"/></div>
+
+        <!-- <div style="display:inline-block;vertical-align: middle;width:700px;font-size:20px;margin-left:30px;color:#fff;">Foosball Champs Blog</div>
         <div style="display:inline-block;text-align:right;vertical-align:middle;width:100px;">
-           
+
            	 <input type="submit" id="addBlog" style="background-color: rgb(255, 157, 153); width: 150px;color:#fff;" value="Add a new Post">
-            
-        </div>
-    </div>
-    <div style="border: 1px solid #47719C;height:40px;text-align:center;vertical-align:middle;font-weight:bold;font-size:20px;color:#FF6600;">
+
+        </div> -->
+    <!-- </div> -->
+    <div style="border: 1px solid #6095C9; height:40px; text-align:center; vertical-align:middle; font-weight:bold; font-size:20px; color:#FF6600;">
         Trending Now
     </div>
     <div style="height:auto;" id="posts">
         <div style="margin:30px;">
-          <p>  Content</p>
-        
-        <span style="margin-top:20px;width:700px;">
-            <span style="margin-left:30px;">
-                <input type="text" name="likes" value="" id="likes" style="border: 3px solid #000;" size="10">
-            </span>
-            <span style="margin-left:0px;">
-                <input type="button" value="Like" style="background-color: #AAC56C; width: 50px;color: #fff;border: 1px solid #839950;">
-            </span>
-        </span>
-        <span style="float:right;margin-right:115px;">
-            <input type="button" style="background-color: rgb(255, 157, 153); width: 150px;color:#fff;" value="Comments">
-        </span>
-	</div>
+        	<div id="trendingPosts">
+            </div>
+        	<!-- <span style="margin-top:20px;width:700px;">
+            	<span style="margin-left:30px;">
+	                <input type="text" name="likes" value="" id="likes" style="border: 3px solid #000;" size="10">
+    	        </span>
+        	    <span style="margin-left:0px;">
+            	    <input type="button" value="Like" style="background-color: #AAC56C; width: 50px;color: #fff;border: 1px solid #839950;">
+            	</span>
+        	</span> -->
+        	<!-- <span style="float:right;margin-right:115px;">
+	            <input type="button" style="background-color: rgb(255, 157, 153); width: 150px;color:#fff;" value="Comments">
+	        </span> -->
+		</div>
     </div>
 </div>
 
 
-<div id="addPost" style="display: none;">
-   <div style="background-color:#6095C9;height:40px;border: 3px solid #47719C;font-weight:bold;">
+<div id="addPost" style="display: none;width:800px; margin: 0 auto; border: 2px solid #6095C9;">
+    <div class="header"><span style="margin-left: 1%; color: white; font-weight:bold;">Foosball Champs Blog</span><input type="button" id="backBtn" value="Back"/></div>
+   <!--<div style="background-color:#6095C9;height:40px;border: 3px solid #47719C;font-weight:bold;">
         <div style="display:inline-block;vertical-align: middle;width:700px;font-size:20px;margin-left:30px;color:#fff;">Foosball Champs Blog</div>
         <div style="display:inline-block;text-align:right;vertical-align:middle;width:100px;">
-           
+
            	 <input type="submit" id="back" style="background-color: rgb(255, 157, 153); width: 150px;color:#fff;" value="Back">
             
         </div>
-    </div>
-<form id="addBlog" name="addBlog" action="${currentNode.path}.blog.html" method="post">
-   Screen Name: <input id="screenName" name="screenName" size="30" type="text" required><br> <br>
-   Title: <input id="postTitle" name="postTitle" size="30" type="text" required><br> <br>
-    Blog Text :<textarea id="postContent" name="postContent" rows="7" cols="30"> 
-    </textarea><br>
-    <input id="addBlog" value="Add Post" type="submit">
-    
+    </div>-->
+<form id="addBlog" name="addBlog"
+	action="${currentNode.path}.blogPOST..html" method="post">
+	<table border="0">
+		<tr>
+			<td><label>Screen Name:</label></td>
+			<td><input id="screenName" name="screenName" size="30"
+				type="text" required></td>
+		</tr>
+		<tr>
+			<td><label>Title: </label></td>
+			<td><input id="postTitle" name="postTitle" size="30" type="text"
+				required></td>
+		</tr>
+		<tr>
+			<td><label>Article Text:</label></td>
+			<td><textarea id="postContent" name="postContent" rows="10"
+					cols="50"></textarea></td>
+		</tr>
+		<tr>
+		<tr>
+            <td colspan="2"><input id="addPostBtn" style="float:left;" value="Add Post" type="submit"></td>
+		</tr>
+	</table>
 </form>
-
-   
-
 </div>

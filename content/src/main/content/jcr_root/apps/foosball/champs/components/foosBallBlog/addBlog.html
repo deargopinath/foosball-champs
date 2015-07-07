@@ -1,7 +1,24 @@
-<form id="addBlog" name="addBlog" action="${currentNode.path}.blog.html" method="post">
-   Screen Name: <input id="screenName" name="screenName" size="30" type="text" required><br> <br>
-   Title: <input id="postTitle" name="postTitle" size="30" type="text" required><br> <br>
-    Blog Text :<textarea id="postContent" name="postContent" rows="7" cols="30"> 
-    </textarea><br>
-    <input id="addBlog" value="Add Post" type="submit">
+<form id="addBlog" name="addBlog"
+	action="${currentNode.path}.blogPOST..html" method="post">
+	<table border="0">
+		<tr>
+			<td><label>Screen Name:</label></td>
+			<td><input id="screenName" name="screenName" size="30"
+				type="text" required></td>
+		</tr>
+		<tr>
+			<td><label>Title: </label></td>
+			<td><input id="postTitle" name="postTitle" size="30" type="text"
+				required></td>
+		</tr>
+		<tr>
+			<td><label>Blog Text :</label></td>
+			<td><textarea id="postContent" name="postContent" rows="10"
+					cols="50"></textarea></td>
+		</tr>
+		<tr>
+		<tr colspan="2">
+			<td><input id="addBlog" value="Add Post" type="submit"></td>
+		</tr>
+	</table>
 </form>
