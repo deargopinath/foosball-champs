@@ -12,7 +12,11 @@ public interface PostService {
 
     public List<Post>  getPostList(String mode);
     
-    public Boolean addPost(Post post);
+    public boolean addPost(Post post);
 
-    public Boolean addComment(String postID, Comment comment);
+    public boolean addComment(String postID, Comment comment);
+    
+    public long increaseLikeCount(String postId, String screenName);
+    
+    public List<Comment> getCommentList(String postId);
 }
