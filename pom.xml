@@ -641,6 +641,8 @@
     </profiles>
 
 	<modules>
+               <!-- Remove comment to install tag library. -->
+               <!--  <module>razorfish-library</module> -->
 		<module>bundle</module>
 		<module>content</module>
 	</modules>
