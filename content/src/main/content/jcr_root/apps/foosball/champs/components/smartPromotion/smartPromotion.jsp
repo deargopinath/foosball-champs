@@ -4,7 +4,7 @@
     <c:when test="${isEditMode}">
         <h2>Smart Promotions</h2>
         <p>Form to create promotions</p>
-        <form id="createPromotion" name="createPromotion" action="<%=currentNode.getPath()%>.createPromotion.html" method="post">
+        <form id="updateCatalog" name="updateCatalog" action="<%=currentNode.getPath()%>.updateCatalog.html" method="post">
           <table style="width:600px">
             <tr>
               <td><b>Locale *</b></td>

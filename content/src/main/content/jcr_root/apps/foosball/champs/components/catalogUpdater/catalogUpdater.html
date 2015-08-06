@@ -1,0 +1,18 @@
+<h2>Catalog Update Form</h2>
+<form id="updateCatalog" name="updateCatalog" action="<%=currentNode.getPath()%>.updateCatalog.html" method="post">
+	<table style="width:600px">
+		<tr>
+			<td><b>All Products JSON *</b></td>
+			<td>
+				<textarea id="allProducts" name="allProducts" rows="20" cols="20" style="width:640px" required></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input id="submitButton" name="submitButton" type="submit" value="Update Catalog"
+					   style="background-color: #081E41; color: #ffffff; font-size:1.0em; height:30px"/>
+			</td>
+		</tr>
+	</table>
+</form>

@@ -43,7 +43,7 @@ package com.foosball.services.common.utilities;
         import org.slf4j.LoggerFactory;
 
 
-@Component(immediate = true, metatype = true, label = "MMY Data Service")
+@Component(immediate = true, metatype = true, label = "Product Catalog Service")
 @Service(RestfulService.class)
 
 public class RestfulServiceImpl implements RestfulService {
