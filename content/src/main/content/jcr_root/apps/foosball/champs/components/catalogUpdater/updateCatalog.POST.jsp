@@ -1,4 +1,4 @@
-<%@include file="/apps/foosball/common/global.jsp"%>
+<%@include file="/apps/foosball/champs/global.jsp"%>
 <%@page import="javax.jcr.Node,
                 com.day.cq.commons.jcr.*"%>
 <%@page pageEncoding="UTF-8" %>
@@ -20,10 +20,10 @@
          String allProducts = slingRequest.getParameter("allProducts").trim();
          rootNode.setProperty("allProducts", allProducts, javax.jcr.PropertyType.STRING);
          rootNode.save();
+         out.println("<h2>Updated the catalog with this data:</h2><br>" + allProducts);
    } catch (Exception ex) {
          out.println(ex.toString());
    }
-   out.println("<br># Promotions in the database = " + promotionCount);
 %>
 
 <FORM>
