@@ -22,8 +22,6 @@ import org.osgi.service.component.ComponentContext;
 
 public class RestfulServlet extends SlingSafeMethodsServlet {
 
-    @Property(label = "Foosball Champs Root", value = "/content/foosball", description = "DocRoot")
-
     @Reference
     private RestfulService service;
 

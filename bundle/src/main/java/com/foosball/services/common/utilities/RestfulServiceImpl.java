@@ -44,7 +44,7 @@ package com.foosball.services.common.utilities;
 
 
 @Component(immediate = true, metatype = true, label = "MMY Data Service")
-@Service(MMYDataService.class)
+@Service(RestfulService.class)
 
 public class RestfulServiceImpl implements RestfulService {
 
@@ -76,7 +76,7 @@ public class RestfulServiceImpl implements RestfulService {
             if(sourceNode.hasProperty("allProducts")) {
                 json = sourceNode.getProperty("allProducts").getString();
             }
-        } catch (RepositoryException e) {
+        } catch (Exception e) {
             LOGGER.error("Data source " + path + "could not be read.", e);
         } finally {
             if (session != null && session.isLive()) {
@@ -99,7 +99,7 @@ public class RestfulServiceImpl implements RestfulService {
             if(sourceNode.hasProperty("tables")) {
                 json = sourceNode.getProperty("tables").getString();
             }
-        } catch (RepositoryException e) {
+        } catch (Exception e) {
             LOGGER.error("Data source " + path + "could not be read.", e);
         } finally {
             if (session != null && session.isLive()) {
@@ -121,7 +121,7 @@ public class RestfulServiceImpl implements RestfulService {
             if(sourceNode.hasProperty("accessories")) {
                 json = sourceNode.getProperty("accessories").getString();
             }
-        } catch (RepositoryException e) {
+        } catch (Exception e) {
             LOGGER.error("Data source " + path + "could not be read.", e);
         } finally {
             if (session != null && session.isLive()) {
